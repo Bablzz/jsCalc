@@ -1,6 +1,8 @@
 'use strict';
 
 let digit = '';
+let resultTag = document.getElementById('resultTag');
+let oper = [];
 
 class Calculate {
     constructor(options) {
@@ -28,11 +30,11 @@ class Calculate {
         }
         
         function compute() {
-           digit += target.innerText;
-        }
+            digit += target.innerText;
+        } 
         compute();
-        
-        console.log(digit);  
+        resultTag.value = digit;
+        //console.log(typeof Number(resultTag.value));  
         
     };
     
@@ -56,8 +58,10 @@ class Calculate {
             numeric = digit.split('/');
             result = Number(numeric[0]) / Number(numeric[1]);
         }
+
         
-        alert(result);
+        resultTag.value = result;
+        
     };
     
     _createCalcButton() {
