@@ -1,1 +1,437 @@
-!function(t){function e(r){if(n[r])return n[r].exports;var i=n[r]={exports:{},id:r,loaded:!1};return t[r].call(i.exports,i,i.exports,e),i.loaded=!0,i.exports}var n={};return e.m=t,e.c=n,e.p="",e(0)}([function(t,e,n){"use strict";var r=n(1),i=[1,2,3,4,5,6,7,8,9,0],o=["-","+","*","/","="];new r({element:document.querySelector('[data-component="js-calc"]'),number:i,oper:o})},function(t,e,n){"use strict";function r(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}var i=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),o="",a=document.getElementById("resultTag"),u=n(2);t.exports=function(){function t(e){r(this,t),this._el=e.element,this._calc=e.number,this._oper=e.oper,this._el.innerHtml=u({button:this._calc}),this._el.addEventListener("click",this._compute.bind(this))}return i(t,[{key:"_compute",value:function(t){function e(){o+=n.innerText}var n=t.target;return"BUTTON"!=n.tagName?!1:"BUTTON"==n.tagName&&"="==n.innerText?(this._finalCompute(),void(o="")):(e(),void(a.value=o))}},{key:"_finalCompute",value:function(){var t=void 0,e=void 0;~o.indexOf("+")?(t=o.split("+"),e=t.reduce(function(t,e){return Number(t)+Number(e)},0)):~o.indexOf("-")?(t=o.split("-"),e=Number(t[0])-Number(t[1])):~o.indexOf("*")?(t=o.split("*"),e=Number(t[0])*Number(t[1])):(t=o.split("/"),e=Number(t[0])/Number(t[1])),a.value=e}}]),t}()},function(t,e,n){var r=n(3);t.exports=function(t){var e,n=[],i=t||{};return function(t,i){(function(){var i=t;if("number"==typeof i.length)for(var o=0,a=i.length;a>o;o++){var u=i[o];n.push("<button>"+r.escape(null==(e=u)?"":e)+"</button>")}else{var a=0;for(var o in i){a++;var u=i[o];n.push("<button>"+r.escape(null==(e=u)?"":e)+"</button>")}}}).call(this)}.call(this,"buttonData"in i?i.buttonData:"undefined"!=typeof buttonData?buttonData:void 0,"undefined"in i?i.undefined:void 0),n.join("")}},function(t,e,n){"use strict";function r(t){return null!=t&&""!==t}function i(t){return(Array.isArray(t)?t.map(i):t&&"object"==typeof t?Object.keys(t).filter(function(e){return t[e]}):[t]).filter(r).join(" ")}function o(t){return u[t]||t}function a(t){var e=String(t).replace(s,o);return e===""+t?t:e}e.merge=function l(t,e){if(1===arguments.length){for(var n=t[0],i=1;i<t.length;i++)n=l(n,t[i]);return n}var o=t["class"],a=e["class"];(o||a)&&(o=o||[],a=a||[],Array.isArray(o)||(o=[o]),Array.isArray(a)||(a=[a]),t["class"]=o.concat(a).filter(r));for(var u in e)"class"!=u&&(t[u]=e[u]);return t},e.joinClasses=i,e.cls=function(t,n){for(var r=[],o=0;o<t.length;o++)n&&n[o]?r.push(e.escape(i([t[o]]))):r.push(i(t[o]));var a=i(r);return a.length?' class="'+a+'"':""},e.style=function(t){return t&&"object"==typeof t?Object.keys(t).map(function(e){return e+":"+t[e]}).join(";"):t},e.attr=function(t,n,r,i){return"style"===t&&(n=e.style(n)),"boolean"==typeof n||null==n?n?" "+(i?t:t+'="'+t+'"'):"":0==t.indexOf("data")&&"string"!=typeof n?(-1!==JSON.stringify(n).indexOf("&")&&console.warn("Since Jade 2.0.0, ampersands (`&`) in data attributes will be escaped to `&amp;`"),n&&"function"==typeof n.toISOString&&console.warn("Jade will eliminate the double quotes around dates in ISO form after 2.0.0")," "+t+"='"+JSON.stringify(n).replace(/'/g,"&apos;")+"'"):r?(n&&"function"==typeof n.toISOString&&console.warn("Jade will stringify dates in ISO form after 2.0.0")," "+t+'="'+e.escape(n)+'"'):(n&&"function"==typeof n.toISOString&&console.warn("Jade will stringify dates in ISO form after 2.0.0")," "+t+'="'+n+'"')},e.attrs=function(t,n){var r=[],o=Object.keys(t);if(o.length)for(var a=0;a<o.length;++a){var u=o[a],s=t[u];"class"==u?(s=i(s))&&r.push(" "+u+'="'+s+'"'):r.push(e.attr(u,s,!1,n))}return r.join("")};var u={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"},s=/[&<>"]/g;e.escape=a,e.rethrow=function c(t,e,r,i){if(!(t instanceof Error))throw t;if(!("undefined"==typeof window&&e||i))throw t.message+=" on line "+r,t;try{i=i||n(4).readFileSync(e,"utf8")}catch(o){c(t,null,r)}var a=3,u=i.split("\n"),s=Math.max(r-a,0),l=Math.min(u.length,r+a),a=u.slice(s,l).map(function(t,e){var n=e+s+1;return(n==r?"  > ":"    ")+n+"| "+t}).join("\n");throw t.path=e,t.message=(e||"Jade")+":"+r+"\n"+a+"\n\n"+t.message,t},e.DebugItem=function(t,e){this.lineno=t,this.filename=e}},function(t,e){}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+
+
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Calculate = __webpack_require__(1);
+
+	var button = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+	var operation = ['-', '+', '*', '/', '='];
+
+	var MyCalc = new Calculate({
+	    element: document.querySelector('[data-component="js-calc"]'),
+	    number: button,
+	    oper: operation
+	});
+
+/***/ },
+/* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var digit = '';
+	var resultTag = document.getElementById('resultTag');
+	var oper = [];
+	var compiledButton = __webpack_require__(2);
+
+	module.exports = function () {
+	    function Calculate(options) {
+	        _classCallCheck(this, Calculate);
+
+	        this._el = options.element;
+	        this._calc = options.number;
+	        this._oper = options.oper;
+	        this._el.innerHtml = compiledButton({
+	            button: this._calc
+	        });
+	        debugger;
+	        //        this._createCalcButton();
+	        //        this._createCalcOper();
+
+	        this._el.addEventListener('click', this._compute.bind(this));
+	    }
+
+	    _createClass(Calculate, [{
+	        key: '_compute',
+	        value: function _compute(event) {
+	            var target = event.target;
+
+	            if (target.tagName != 'BUTTON') {
+	                return false;
+	            }
+
+	            if (target.tagName == 'BUTTON' && target.innerText == '=') {
+	                this._finalCompute();
+	                digit = '';
+	                return;
+	            }
+
+	            function compute() {
+	                digit += target.innerText;
+	            }
+	            compute();
+	            resultTag.value = digit;
+	        }
+	    }, {
+	        key: '_finalCompute',
+	        value: function _finalCompute() {
+	            //TODO
+	            var numeric = void 0;
+	            var result = void 0;
+
+	            if (~digit.indexOf('+')) {
+	                numeric = digit.split('+');
+	                result = numeric.reduce(function (result, current) {
+	                    return Number(result) + Number(current);
+	                }, 0);
+	            } else if (~digit.indexOf('-')) {
+	                numeric = digit.split('-');
+	                result = Number(numeric[0]) - Number(numeric[1]);
+	            } else if (~digit.indexOf('*')) {
+	                numeric = digit.split('*');
+	                result = Number(numeric[0]) * Number(numeric[1]);
+	            } else {
+	                numeric = digit.split('/');
+	                result = Number(numeric[0]) / Number(numeric[1]);
+	            }
+
+	            resultTag.value = result;
+	        }
+	    }]);
+
+	    return Calculate;
+	}();
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var jade = __webpack_require__(3);
+
+	module.exports = function template(locals) {
+	var buf = [];
+	var jade_mixins = {};
+	var jade_interp;
+	;var locals_for_with = (locals || {});(function (button, undefined) {
+	// iterate button
+	;(function(){
+	  var $$obj = button;
+	  if ('number' == typeof $$obj.length) {
+
+	    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+	      var buttons = $$obj[$index];
+
+	buf.push("<button>" + (jade.escape((jade_interp = buttons) == null ? '' : jade_interp)) + "</button>");
+	    }
+
+	  } else {
+	    var $$l = 0;
+	    for (var $index in $$obj) {
+	      $$l++;      var buttons = $$obj[$index];
+
+	buf.push("<button>" + (jade.escape((jade_interp = buttons) == null ? '' : jade_interp)) + "</button>");
+	    }
+
+	  }
+	}).call(this);
+	}.call(this,"button" in locals_for_with?locals_for_with.button:typeof button!=="undefined"?button:undefined,"undefined" in locals_for_with?locals_for_with.undefined: false?undefined:undefined));;return buf.join("");
+	}
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * Merge two attribute objects giving precedence
+	 * to values in object `b`. Classes are special-cased
+	 * allowing for arrays and merging/joining appropriately
+	 * resulting in a string.
+	 *
+	 * @param {Object} a
+	 * @param {Object} b
+	 * @return {Object} a
+	 * @api private
+	 */
+
+	exports.merge = function merge(a, b) {
+	  if (arguments.length === 1) {
+	    var attrs = a[0];
+	    for (var i = 1; i < a.length; i++) {
+	      attrs = merge(attrs, a[i]);
+	    }
+	    return attrs;
+	  }
+	  var ac = a['class'];
+	  var bc = b['class'];
+
+	  if (ac || bc) {
+	    ac = ac || [];
+	    bc = bc || [];
+	    if (!Array.isArray(ac)) ac = [ac];
+	    if (!Array.isArray(bc)) bc = [bc];
+	    a['class'] = ac.concat(bc).filter(nulls);
+	  }
+
+	  for (var key in b) {
+	    if (key != 'class') {
+	      a[key] = b[key];
+	    }
+	  }
+
+	  return a;
+	};
+
+	/**
+	 * Filter null `val`s.
+	 *
+	 * @param {*} val
+	 * @return {Boolean}
+	 * @api private
+	 */
+
+	function nulls(val) {
+	  return val != null && val !== '';
+	}
+
+	/**
+	 * join array as classes.
+	 *
+	 * @param {*} val
+	 * @return {String}
+	 */
+	exports.joinClasses = joinClasses;
+	function joinClasses(val) {
+	  return (Array.isArray(val) ? val.map(joinClasses) :
+	    (val && typeof val === 'object') ? Object.keys(val).filter(function (key) { return val[key]; }) :
+	    [val]).filter(nulls).join(' ');
+	}
+
+	/**
+	 * Render the given classes.
+	 *
+	 * @param {Array} classes
+	 * @param {Array.<Boolean>} escaped
+	 * @return {String}
+	 */
+	exports.cls = function cls(classes, escaped) {
+	  var buf = [];
+	  for (var i = 0; i < classes.length; i++) {
+	    if (escaped && escaped[i]) {
+	      buf.push(exports.escape(joinClasses([classes[i]])));
+	    } else {
+	      buf.push(joinClasses(classes[i]));
+	    }
+	  }
+	  var text = joinClasses(buf);
+	  if (text.length) {
+	    return ' class="' + text + '"';
+	  } else {
+	    return '';
+	  }
+	};
+
+
+	exports.style = function (val) {
+	  if (val && typeof val === 'object') {
+	    return Object.keys(val).map(function (style) {
+	      return style + ':' + val[style];
+	    }).join(';');
+	  } else {
+	    return val;
+	  }
+	};
+	/**
+	 * Render the given attribute.
+	 *
+	 * @param {String} key
+	 * @param {String} val
+	 * @param {Boolean} escaped
+	 * @param {Boolean} terse
+	 * @return {String}
+	 */
+	exports.attr = function attr(key, val, escaped, terse) {
+	  if (key === 'style') {
+	    val = exports.style(val);
+	  }
+	  if ('boolean' == typeof val || null == val) {
+	    if (val) {
+	      return ' ' + (terse ? key : key + '="' + key + '"');
+	    } else {
+	      return '';
+	    }
+	  } else if (0 == key.indexOf('data') && 'string' != typeof val) {
+	    if (JSON.stringify(val).indexOf('&') !== -1) {
+	      console.warn('Since Jade 2.0.0, ampersands (`&`) in data attributes ' +
+	                   'will be escaped to `&amp;`');
+	    };
+	    if (val && typeof val.toISOString === 'function') {
+	      console.warn('Jade will eliminate the double quotes around dates in ' +
+	                   'ISO form after 2.0.0');
+	    }
+	    return ' ' + key + "='" + JSON.stringify(val).replace(/'/g, '&apos;') + "'";
+	  } else if (escaped) {
+	    if (val && typeof val.toISOString === 'function') {
+	      console.warn('Jade will stringify dates in ISO form after 2.0.0');
+	    }
+	    return ' ' + key + '="' + exports.escape(val) + '"';
+	  } else {
+	    if (val && typeof val.toISOString === 'function') {
+	      console.warn('Jade will stringify dates in ISO form after 2.0.0');
+	    }
+	    return ' ' + key + '="' + val + '"';
+	  }
+	};
+
+	/**
+	 * Render the given attributes object.
+	 *
+	 * @param {Object} obj
+	 * @param {Object} escaped
+	 * @return {String}
+	 */
+	exports.attrs = function attrs(obj, terse){
+	  var buf = [];
+
+	  var keys = Object.keys(obj);
+
+	  if (keys.length) {
+	    for (var i = 0; i < keys.length; ++i) {
+	      var key = keys[i]
+	        , val = obj[key];
+
+	      if ('class' == key) {
+	        if (val = joinClasses(val)) {
+	          buf.push(' ' + key + '="' + val + '"');
+	        }
+	      } else {
+	        buf.push(exports.attr(key, val, false, terse));
+	      }
+	    }
+	  }
+
+	  return buf.join('');
+	};
+
+	/**
+	 * Escape the given string of `html`.
+	 *
+	 * @param {String} html
+	 * @return {String}
+	 * @api private
+	 */
+
+	var jade_encode_html_rules = {
+	  '&': '&amp;',
+	  '<': '&lt;',
+	  '>': '&gt;',
+	  '"': '&quot;'
+	};
+	var jade_match_html = /[&<>"]/g;
+
+	function jade_encode_char(c) {
+	  return jade_encode_html_rules[c] || c;
+	}
+
+	exports.escape = jade_escape;
+	function jade_escape(html){
+	  var result = String(html).replace(jade_match_html, jade_encode_char);
+	  if (result === '' + html) return html;
+	  else return result;
+	};
+
+	/**
+	 * Re-throw the given `err` in context to the
+	 * the jade in `filename` at the given `lineno`.
+	 *
+	 * @param {Error} err
+	 * @param {String} filename
+	 * @param {String} lineno
+	 * @api private
+	 */
+
+	exports.rethrow = function rethrow(err, filename, lineno, str){
+	  if (!(err instanceof Error)) throw err;
+	  if ((typeof window != 'undefined' || !filename) && !str) {
+	    err.message += ' on line ' + lineno;
+	    throw err;
+	  }
+	  try {
+	    str = str || __webpack_require__(4).readFileSync(filename, 'utf8')
+	  } catch (ex) {
+	    rethrow(err, null, lineno)
+	  }
+	  var context = 3
+	    , lines = str.split('\n')
+	    , start = Math.max(lineno - context, 0)
+	    , end = Math.min(lines.length, lineno + context);
+
+	  // Error context
+	  var context = lines.slice(start, end).map(function(line, i){
+	    var curr = i + start + 1;
+	    return (curr == lineno ? '  > ' : '    ')
+	      + curr
+	      + '| '
+	      + line;
+	  }).join('\n');
+
+	  // Alter exception message
+	  err.path = filename;
+	  err.message = (filename || 'Jade') + ':' + lineno
+	    + '\n' + context + '\n\n' + err.message;
+	  throw err;
+	};
+
+	exports.DebugItem = function DebugItem(lineno, filename) {
+	  this.lineno = lineno;
+	  this.filename = filename;
+	}
+
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	/* (ignored) */
+
+/***/ }
+/******/ ]);

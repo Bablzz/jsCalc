@@ -12,7 +12,7 @@ module.exports = {
         filename: "build.js"
     },
     
-    watch: false,
+    watch: true,
     
     //devtool: "source-map",
     
@@ -36,11 +36,11 @@ module.exports = {
   },
     
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+//    new webpack.optimize.UglifyJsPlugin({
+//      compress: {
+//        warnings: false
+//      }
+//    })
   ]
 
 }
