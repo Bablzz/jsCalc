@@ -3,15 +3,20 @@
 let digit = '';
 let resultTag = document.getElementById('resultTag');
 let oper = [];
+let compiledButton = require('../templates/button-template.jade');
 
-class Calculate {
+
+module.exports = class Calculate {
     constructor(options) {
         this._el = options.element;
         this._calc = options.number;
         this._oper = options.oper;
-        
-        this._createCalcButton();
-        this._createCalcOper();
+        this._el.innerHtml = compiledButton({
+            button: this._calc
+        })
+        debugger;
+//        this._createCalcButton();
+//        this._createCalcOper();
         
         this._el.addEventListener('click', this._compute.bind(this));
     }
@@ -34,7 +39,6 @@ class Calculate {
         } 
         compute();
         resultTag.value = digit;
-        //console.log(typeof Number(resultTag.value));  
         
     };
     
@@ -64,29 +68,29 @@ class Calculate {
         
     };
     
-    _createCalcButton() {
-        this._calc.forEach(buttonData => {
-            let buttonHtml = `
-                <button>
-                    ${buttonData}
-                </button>    
-            `;
-            
-            this._el.insertAdjacentHTML('beforeEnd', buttonHtml);
-        });
-    };
-        
-    _createCalcOper() {
-        this._oper.forEach(operButtonHtml => {
-            let operHtml = `
-                <button>
-                    ${operButtonHtml}
-                </button>    
-            `;
-            
-            this._el.insertAdjacentHTML('beforeEnd', operHtml);
-        });
-    };
+//    _createCalcButton() {
+//        this._calc.forEach(buttonData => {
+//            let buttonHtml = `
+//                <button>
+//                    ${buttonData}
+//                </button>    
+//            `;
+//            
+//            this._el.insertAdjacentHTML('beforeEnd', buttonHtml);
+//        });
+//    };
+//        
+//    _createCalcOper() {
+//        this._oper.forEach(operButtonHtml => {
+//            let operHtml = `
+//                <button>
+//                    ${operButtonHtml}
+//                </button>    
+//            `;
+//            
+//            this._el.insertAdjacentHTML('beforeEnd', operHtml);
+//        });
+//    };
     
 
 }
