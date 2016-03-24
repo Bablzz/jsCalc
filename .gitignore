@@ -1,2 +1,4 @@
 test/*
 karma.conf.js
+node_modules/*
+.gitignore
