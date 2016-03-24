@@ -4,24 +4,31 @@ let digit = '';
 let resultTag = document.getElementById('resultTag');
 let oper = [];
 let compiledButton = require('../templates/button-template.jade');
+let compiledOper = require('../templates/operation-button-template.jade');
 
 
 module.exports = class Calculate {
     constructor(options) {
         this._el = options.element;
-        this._calc = options.number;
-        this._oper = options.oper;
-        this._el.innerHtml = compiledButton({
-            button: this._calc
-        })
-        debugger;
-//        this._createCalcButton();
-//        this._createCalcOper();
         
-        this._el.addEventListener('click', this._compute.bind(this));
+        this._calc = [1,2,3,4,5,6,7,8,9,0];
+        
+        this._oper = ['-','+','*', '/', '='];
+        
+        this._el.innerHTML = compiledButton({
+            button: this._calc
+        });
+        
+        this._compileOper = compiledOper({button: this._oper});
+        
+        this._el.insertAdjacentHTML('beforeEnd', this._compileOper);
+        
+        debugger;
+
+        this._el.addEventListener('click', this._onClick.bind(this));
     }
     
-    _compute(event) {
+    _onClick(event) {
         let target = event.target;
         
         if (target.tagName != 'BUTTON') {
@@ -66,31 +73,5 @@ module.exports = class Calculate {
         
         resultTag.value = result;
         
-    };
-    
-//    _createCalcButton() {
-//        this._calc.forEach(buttonData => {
-//            let buttonHtml = `
-//                <button>
-//                    ${buttonData}
-//                </button>    
-//            `;
-//            
-//            this._el.insertAdjacentHTML('beforeEnd', buttonHtml);
-//        });
-//    };
-//        
-//    _createCalcOper() {
-//        this._oper.forEach(operButtonHtml => {
-//            let operHtml = `
-//                <button>
-//                    ${operButtonHtml}
-//                </button>    
-//            `;
-//            
-//            this._el.insertAdjacentHTML('beforeEnd', operHtml);
-//        });
-//    };
-    
-
+    }; 
 }

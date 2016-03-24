@@ -48,13 +48,8 @@
 
 	var Calculate = __webpack_require__(1);
 
-	var button = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-	var operation = ['-', '+', '*', '/', '='];
-
 	var MyCalc = new Calculate({
-	    element: document.querySelector('[data-component="js-calc"]'),
-	    number: button,
-	    oper: operation
+	    element: document.querySelector('[data-component="js-calc"]')
 	});
 
 /***/ },
@@ -71,27 +66,34 @@
 	var resultTag = document.getElementById('resultTag');
 	var oper = [];
 	var compiledButton = __webpack_require__(2);
+	var compiledOper = __webpack_require__(5);
 
 	module.exports = function () {
 	    function Calculate(options) {
 	        _classCallCheck(this, Calculate);
 
 	        this._el = options.element;
-	        this._calc = options.number;
-	        this._oper = options.oper;
-	        this._el.innerHtml = compiledButton({
+
+	        this._calc = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+	        this._oper = ['-', '+', '*', '/', '='];
+
+	        this._el.innerHTML = compiledButton({
 	            button: this._calc
 	        });
-	        debugger;
-	        //        this._createCalcButton();
-	        //        this._createCalcOper();
 
-	        this._el.addEventListener('click', this._compute.bind(this));
+	        this._compileOper = compiledOper({ button: this._oper });
+
+	        this._el.insertAdjacentHTML('beforeEnd', this._compileOper);
+
+	        debugger;
+
+	        this._el.addEventListener('click', this._onClick.bind(this));
 	    }
 
 	    _createClass(Calculate, [{
-	        key: '_compute',
-	        value: function _compute(event) {
+	        key: '_onClick',
+	        value: function _onClick(event) {
 	            var target = event.target;
 
 	            if (target.tagName != 'BUTTON') {
@@ -432,6 +434,41 @@
 /***/ function(module, exports) {
 
 	/* (ignored) */
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var jade = __webpack_require__(3);
+
+	module.exports = function template(locals) {
+	var buf = [];
+	var jade_mixins = {};
+	var jade_interp;
+	;var locals_for_with = (locals || {});(function (button, undefined) {
+	// iterate button
+	;(function(){
+	  var $$obj = button;
+	  if ('number' == typeof $$obj.length) {
+
+	    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
+	      var buttons = $$obj[$index];
+
+	buf.push("<button>" + (jade.escape((jade_interp = buttons) == null ? '' : jade_interp)) + "</button>");
+	    }
+
+	  } else {
+	    var $$l = 0;
+	    for (var $index in $$obj) {
+	      $$l++;      var buttons = $$obj[$index];
+
+	buf.push("<button>" + (jade.escape((jade_interp = buttons) == null ? '' : jade_interp)) + "</button>");
+	    }
+
+	  }
+	}).call(this);
+	}.call(this,"button" in locals_for_with?locals_for_with.button:typeof button!=="undefined"?button:undefined,"undefined" in locals_for_with?locals_for_with.undefined: false?undefined:undefined));;return buf.join("");
+	}
 
 /***/ }
 /******/ ]);
