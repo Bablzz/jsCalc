@@ -66,7 +66,6 @@
 	var resultTag = document.getElementById('resultTag');
 	var oper = [];
 	var compiledButton = __webpack_require__(2);
-	var compiledOper = __webpack_require__(5);
 
 	module.exports = function () {
 	    function Calculate(options) {
@@ -82,7 +81,7 @@
 	            button: this._calc
 	        });
 
-	        this._compileOper = compiledOper({ button: this._oper });
+	        this._compileOper = compiledButton({ button: this._oper });
 
 	        this._el.insertAdjacentHTML('beforeEnd', this._compileOper);
 
@@ -434,41 +433,6 @@
 /***/ function(module, exports) {
 
 	/* (ignored) */
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var jade = __webpack_require__(3);
-
-	module.exports = function template(locals) {
-	var buf = [];
-	var jade_mixins = {};
-	var jade_interp;
-	;var locals_for_with = (locals || {});(function (button, undefined) {
-	// iterate button
-	;(function(){
-	  var $$obj = button;
-	  if ('number' == typeof $$obj.length) {
-
-	    for (var $index = 0, $$l = $$obj.length; $index < $$l; $index++) {
-	      var buttons = $$obj[$index];
-
-	buf.push("<button>" + (jade.escape((jade_interp = buttons) == null ? '' : jade_interp)) + "</button>");
-	    }
-
-	  } else {
-	    var $$l = 0;
-	    for (var $index in $$obj) {
-	      $$l++;      var buttons = $$obj[$index];
-
-	buf.push("<button>" + (jade.escape((jade_interp = buttons) == null ? '' : jade_interp)) + "</button>");
-	    }
-
-	  }
-	}).call(this);
-	}.call(this,"button" in locals_for_with?locals_for_with.button:typeof button!=="undefined"?button:undefined,"undefined" in locals_for_with?locals_for_with.undefined: false?undefined:undefined));;return buf.join("");
-	}
 
 /***/ }
 /******/ ]);

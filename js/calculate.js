@@ -4,7 +4,6 @@ let digit = '';
 let resultTag = document.getElementById('resultTag');
 let oper = [];
 let compiledButton = require('../templates/button-template.jade');
-let compiledOper = require('../templates/operation-button-template.jade');
 
 
 module.exports = class Calculate {
@@ -19,7 +18,7 @@ module.exports = class Calculate {
             button: this._calc
         });
         
-        this._compileOper = compiledOper({button: this._oper});
+        this._compileOper = compiledButton({button: this._oper});
         
         this._el.insertAdjacentHTML('beforeEnd', this._compileOper);
         
